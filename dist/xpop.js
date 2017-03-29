@@ -327,25 +327,22 @@
             this._setSize({width:this.originalStatus.width,height:this.originalStatus.height});
         },
         _close:function(){
-            if(this.settings.type==='modal'){
-                this.$Wrapper.hide();
-                if($BackDrop!=null){
-                    $BackDrop.hide();
-                }
-            }else{
-                $Window.off(".XPop");
-                this.$Header.off(".XPop");
-                this.$Wrapper.addClass("xpop-animated-bounceOut");
-                if($BackDrop!=null){
-                    $BackDrop.hide();
-                }
-                setTimeout(function(arguments){
-                    var param=[].slice.call(arguments);
-                    param.unshift("close.XPop");
-                    this.trigger.apply(this,param);
-                    this.$Wrapper.remove();
-                }.bind(this,arguments),300);
+            $Window.off(".XPop");
+            this.$Header.off(".XPop");
+            this.$Wrapper.addClass("xpop-animated-bounceOut");
+            if($BackDrop!==null){
+                $BackDrop.hide();
             }
+            setTimeout(function(arguments){
+                var param=[].slice.call(arguments);
+                param.unshift("close.XPop");
+                this.trigger.apply(this,param);
+                if(this.settings.type==='modal'){
+                    this.$Wrapper.removeClass('xpop-animated-bounceOut').hide();
+                }else{
+                    this.$Wrapper.remove();
+                }
+            }.bind(this,arguments),300);
         },
         on:function(event,callback){
             this.$Wrapper.on(event,callback.bind(this));
