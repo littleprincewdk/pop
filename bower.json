@@ -1,0 +1,27 @@
+{
+  "name": "Xpop",
+  "main": "Xpop.js",
+  "authors": [
+    "wudengke <2889110370@qq.com>"
+  ],
+  "description": "弹框插件",
+  "keywords": [
+    "modal",
+    "tips",
+    "alert",
+    "confirm",
+    "pop"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}

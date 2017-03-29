@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XPop</title>
+    <link href="dist/xpop.css" rel="stylesheet" type="text/css"/>
+    <link href="dist/xloading.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        html,body{
+            padding:0;
+            margin:0;
+        }
+        html{
+            font-family: sans-serif;
+        }
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="xpop xpop-modal">
+    <div class="xpop-content">
+        <div class="xpop-header">
+            <h4 class="xpop-title">XPop Title</h4>
+            <button class="close" data-tool="close"></button>
+            <button class="maximize" data-tool="maximize"></button>
+            <button class="minimize" data-tool="minimize"></button>
+        </div>
+        <div class="xpop-body">
+            简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。
+        </div>
+        <div class="xpop-footer">
+            <button class="xpop-btn btn-default" data-tool="close">close</button>
+            <button class="xpop-btn btn-primary" data-tool="ok">ok</button>
+        </div>
+    </div>
+</div>
+<button class="test">modal</button>
+<button class="test">tip</button>
+<button class="test">confirm</button>
+<button class="test">prompt</button>
+<button class="test">捕获页</button>
+<button class="test">url</button>
+<button class="test">loading</button>
+<div id="target"><h3>我是捕获目标</h3></div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="dist/xpop.js"></script>
+<script>
+    $(function(){
+        $(".test").click(function(){
+            switch ($(this).text()){
+                case "modal":
+                    $(".xpop").XPop({
+                        dragMode:true,
+                        backdropMode:true
+                    });
+                    break;
+                case "tip":
+                    XPop.pop("tip","成功");
+                    break;
+                case "confirm":
+                    XPop.pop("confirm","成功","title").on("close.XPop",function (e,v) {
+                        console.log(v);
+                    });
+                    break;
+                case "prompt":
+                    XPop.pop("prompt","输入口令").on("close.XPop",function (e,v) {
+                        console.log(v);
+                    });
+                    break;
+                case "捕获页":
+                    XPop.pop("confirm",$("#target"),"捕获内容",{dragMode:true,closable:true,maximizable:true,minimizable:true});
+                    break;
+                case "url":
+                    XPop.pop("url","https://www.baidu.com/","百度");
+                    break;
+                case "loading":
+                    var loading=XPop.pop("loading","wave");
+                    setTimeout(function(){
+                        loading._close();
+                    },3000);
+                    break;
+            }
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
