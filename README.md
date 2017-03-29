@@ -1,5 +1,7 @@
 #Xpop 一款弹框插件
+
 ##功能
+
 ###modal
 html
 
@@ -69,11 +71,9 @@ js
 	
 	XPop.pop("url","https://www.baidu.com/","百度");
 ##配置项
-|项|作用|
-|:--|:--|
-|dragMode|是否可拖动|
-|resizeMode|是否可缩放|
-|backdropMode|是否有遮罩|
+- dragMode:是否可拖动
+- resizeMode:是否可缩放
+- backdropMode:是否有遮罩
 
 ##加载动画
 	rotatingPlane,doubleBounce,wave,wanderingCubes,spinner,chasingDots,threeBounce,circle,cubeGrid,fadingCircle,foldingCube
