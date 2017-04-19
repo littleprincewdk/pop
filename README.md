@@ -1,5 +1,6 @@
-#Xpop 一款弹框插件
-
+Xpop 一款弹框插件
+-
+[demo](http://princekin.tjxuechuang.com/projects/xpop/index.html)
 ##功能
 
 ###modal
